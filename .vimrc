@@ -17,7 +17,14 @@ inoremap [ []<LEFT>
 inoremap ( ()<LEFT>
 inoremap " ""<LEFT>
 inoremap ' ''<LEFT>
-
+"<Leader>というプレフィックスキーにスペースを使用する
+let g:mapleader = "\<Space>"
+" Escを2回押すとハイライトを消す
+nnoremap <Esc><Esc> :nohlsearch<CR>
+" スペース + wでファイル保存
+nnoremap <Leader>w :w<CR>
+" スペース + . でvimrcを開く
+nnoremap <Leader>. :new ~/.vimrc<CR>
 
 " 見た目系
 " 行番号を表示
@@ -69,4 +76,9 @@ set wrapscan
 set hlsearch
 " ESC連打でハイライト解除
 nmap <Esc><Esc> :nohlsearch<CR><Esc>
-
+" Undoの永続化
+if has('persistent_undo')
+  let undo_path = expand('~/.vim/undo')
+  exe 'set undodir=' .. undo_path
+  set undofile
+endif
