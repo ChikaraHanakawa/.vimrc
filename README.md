@@ -1,7 +1,7 @@
 # .vimrc
 ***My vimrc***
 ## A.wslでの運用方法
-1:molokaiを導入する為に[こちら](https://github.com/tomasr/molokai)のGitHubのリポジトリをクローンする。
+1:molokaiを導入する為に[こちら](https://github.com/tomasr/molokai)のGitHubリポジトリをクローンする。
 ```.vimrc:REAME.md
 git clone https://github.com/tomasr/molokai.git
 ```
