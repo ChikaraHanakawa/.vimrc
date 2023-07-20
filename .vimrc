@@ -1,4 +1,4 @@
-" 汎用設定
+" setting
 "文字コードをUFT-8に設定
 set fenc=utf-8
 " バックアップファイルを作らない
@@ -17,6 +17,8 @@ inoremap [ []<LEFT>
 inoremap ( ()<LEFT>
 inoremap " ""<LEFT>
 inoremap ' ''<LEFT>
+inoremap ` ``<LEFT>
+inoremap < <><LEFT>
 "<Leader>というプレフィックスキーにスペースを使用する
 let g:mapleader = "\<Space>"
 " Escを2回押すとハイライトを消す
@@ -25,32 +27,8 @@ nnoremap <Esc><Esc> :nohlsearch<CR>
 nnoremap <Leader>w :w<CR>
 " スペース + . でvimrcを開く
 nnoremap <Leader>. :new ~/.vimrc<CR>
-" 編集箇所のカーソルを記憶
-if has("autocmd")
-  augroup redhat
-    " In text files, always limit the width of text to 78 characters
-    autocmd BufRead *.txt set tw=78
-    " When editing a file, always jump to the last cursor position
-    autocmd BufReadPost *
-    \ if line("'\"") > 0 && line ("'\"") <= line("$") |
-    \   exe "normal! g'\"" |
-    \ endif
-  augroup END
-endif
-" yでコピーした時にクリップボードに入る
-set guioptions+=a
-" 全角文字専用の設定
-set ambiwidth=double
-" 入力モード時にctrlを押しながら、hjklでカーソル移動
-inoremap <C-j> <Down>
-inoremap <C-k> <Up>
-inoremap <C-h> <Left>
-inoremap <C-l> <Right>
-
 
 " 見た目系
-" タイトルを表示
-set title
 " 行番号を表示
 set number
 " 現在の行を強調表示
@@ -75,7 +53,6 @@ nnoremap k gk
 " シンタックスハイライトの有効化
 syntax enable
 
-
 " Tab系
 " 不可視文字を可視化(タブが「▸-」と表示される)
 set list listchars=tab:\▸\-
@@ -85,7 +62,6 @@ set expandtab
 set tabstop=2
 " 行頭でのTab文字の表示幅
 set shiftwidth=2
-
 
 " 検索系
 " 検索文字列が小文字の場合は大文字小文字を区別なく検索する
