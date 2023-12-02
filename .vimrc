@@ -1,5 +1,5 @@
 " setting
-"文字コードをUFT-8に設定
+" 文字コードをUFT-8に設定
 set fenc=utf-8
 " バックアップファイルを作らない
 set nobackup
@@ -11,7 +11,7 @@ set autoread
 set hidden
 " 入力中のコマンドをステータスに表示する
 set showcmd
-"括弧とクォーテーションの自動補完
+" 括弧とクォーテーションの自動補完
 inoremap { {}<LEFT>
 inoremap [ []<LEFT>
 inoremap ( ()<LEFT>
@@ -19,14 +19,12 @@ inoremap " ""<LEFT>
 inoremap ' ''<LEFT>
 inoremap ` ``<LEFT>
 inoremap < <><LEFT>
-"<Leader>というプレフィックスキーにスペースを使用する
+" <Leader>というプレフィックスキーにスペースを使用する
 let g:mapleader = "\<Space>"
 " Escを2回押すとハイライトを消す
 nnoremap <Esc><Esc> :nohlsearch<CR>
-" スペース + wでファイル保存
-nnoremap <Leader>w :w<CR>
-" スペース + . でvimrcを開く
-nnoremap <Leader>. :new ~/.vimrc<CR>
+" コマンドライン補完するときに強化されたものを使う
+set wildmenu
 
 " 見た目系
 " 行番号を表示
@@ -52,6 +50,8 @@ nnoremap j gj
 nnoremap k gk
 " シンタックスハイライトの有効化
 syntax enable
+" ルーラーを表示
+set ruler
 
 " Tab系
 " 不可視文字を可視化(タブが「▸-」と表示される)
@@ -82,3 +82,29 @@ if has('persistent_undo')
   exe 'set undodir=' .. undo_path
   set undofile
 endif
+
+" キーボード系統
+" Escを2回押すとハイライトを消す
+nnoremap <Esc><Esc> :nohlsearch<CR>
+" スペース + wでファイル保存
+nnoremap <Leader>w :w<CR>
+" スペース + . でvimrcを開く
+nnoremap <Leader>. :new ~/.vimrc<CR>
+" vvで後ろ全てを選択
+vnoremap v $h
+
+" ファイル操作に関する設定
+" バックアップファイルを作成しない (次行の先頭の " を削除すれば有効になる)
+set nobackup
+
+set clipboard=unnamed,autoselect
+set fileencoding=utf-8
+set encoding=utf-8
+set softtabstop=4
+set shiftwidth=4
+set textwidth=0
+set switchbuf=useopen   " 新しく開く代わりにすでに開いてあるバッファを開く
+set nowritebackup
+set noswapfile
+set virtualedit=all     " カーソルを文字が存在しない部分でも動けるようにする
+syntax on
