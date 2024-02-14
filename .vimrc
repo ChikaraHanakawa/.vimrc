@@ -18,7 +18,6 @@ inoremap ( ()<LEFT>
 inoremap " ""<LEFT>
 inoremap ' ''<LEFT>
 inoremap ` ``<LEFT>
-inoremap < <><LEFT>
 " <Leader>というプレフィックスキーにスペースを使用する
 let g:mapleader = "\<Space>"
 " Escを2回押すとハイライトを消す
